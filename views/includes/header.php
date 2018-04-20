@@ -73,13 +73,13 @@
             if($this->session->userdata('user_type') == 'master')
             { 
        ?>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Brand</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="<?php echo base_url();?>modules/manage_categories">Category</a></li>
+            <li><a href="<?php echo base_url();?>modules/manage_brands">Brand</a></li>
+            <li><a href="<?php echo base_url();?>modules/manage_products">Products</a></li>
         <?php 
             }
         ?>
-            <li><a href="#">Order</a></li>
+            <li><a href="<?php echo base_url();?>modules/manage_orders">Order</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">

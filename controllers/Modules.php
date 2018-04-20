@@ -48,5 +48,14 @@
         }
 
 
+        /******** CATEGORIES MODULE *****/
+
+        //  Manage Categories
+        function manage_categories(){
+            $data['title'] = "Manage Categories";
+            $this->load->view('includes/header', $data);
+            $this->load->view('modules/categories/manage_categories');
+            $this->load->view('includes/footer.php', $data);
+        }        
 
     }
