@@ -6,7 +6,7 @@
             $this->db->select('*');
             $this->db->from('category');
             $query = $this->db->get();
-            return $query->row_array();
+            return $query->result_array();
         }
 
 

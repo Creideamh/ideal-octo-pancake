@@ -3,9 +3,9 @@
     class Categories extends CI_Controller{
 
         function category_status($category_status){
-            if($category_status === 'Inactive'){
+            if($category_status === 'inactive'){
                 return '<span class="label label-danger">Inactive</span>';
-            }else if($user_status === 'Active'){
+            }else if($category_status === 'active'){
                 return '<span class="label label-success">Active</span>';                
             }
         }
