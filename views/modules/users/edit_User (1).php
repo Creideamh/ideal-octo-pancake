@@ -1,4 +1,5 @@
-<div class="modal-header">
+
+      <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Edit User</h4>
       </div>
@@ -81,14 +82,20 @@
 
 
 <script> 
+
       //Initialize Select2 Elements
   $(document).ready(function(){
+
     $('.select2').select2();
+
     $('.modal').on('hidden.bs.modal', function(e){
         $(this).removeData('bs.modal');
       })
+
     $('#update').on('click', function(){
+
       if($('#user_password').val() != ''){
+
       var user_email = $('#user_email').val();
       var lastname = $("#lastname").val();
       var firstname = $("#firstname").val();
@@ -96,6 +103,7 @@
       var user_type = $("#user_type").val();
       var user_password = $("#user_password").val();
       var user_status = $("#user_status").val();
+
       var dataString = 'lastname='+ lastname +
                        '&firstname='+ firstname +
                        '&user_email='+ user_email +
@@ -103,6 +111,7 @@
                        '&user_type='+ user_type +
                        '&user_password='+ user_password +
                        '&user_status='+ user_status;
+
       $.ajax({
       type: 'ajax',
       method: 'post',
@@ -133,7 +142,12 @@
   toastr.options.positionClass= 'toast-top-full-width';
   toastr.options.preventDuplicates = true;
   toastr.warning('Empty password field');     
+
 }
     })
+
   })
 </script>
+
+
+
