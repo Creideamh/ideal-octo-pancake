@@ -68,10 +68,12 @@
             }else{
                 $category_name  = $this->input->post('category_name');
                 $category_status = $this->input->post('category_status');
-                $category_info  = $this->categories_model->edit_Category($category_name, $category_status);
+                $category_id    = $this->input->post('category_id');
+
+                $category_info  = $this->categories_model->edit_Category($category_id, $category_name, $category_status);
             }
 
-                }
+        }
         
 
     }

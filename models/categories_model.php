@@ -28,10 +28,29 @@
             }
         }
 
-        function edit_Category($category_name , $category_status){
+        function category_data($category_id){
             $this->db->where('category_id', $category_id);
+            $this->db->select('*');
+            $this->db->from('category');
+            $query = $this->db->get();
+            return $query->row_array();
+        }
+
+        function edit_Category($category_id, $category_name , $category_status){
+            $this->db->where('category_name', $category_name);
             $results = $this->db->get('category');
-            return  $results->row_array();
+            
+            if($results->num_rows() == 1){
+                $sql = "UPDATE `category` SET `category_name`='$category_name',`category_status`='$category_status' WHERE category_id = $category_id";
+                if($this->db->query($sql)){
+                    echo 'Category, '.$category_name.' with status '.$category_status.'  updated succesfully';
+                }else{
+                    echo 'Category, '.$category_name.' with status '.$category_status.'  could not be created';                   
+                } 
+            }else{
+                echo 'Double entries for this category exist';
+            }
+
         }
 
     }
