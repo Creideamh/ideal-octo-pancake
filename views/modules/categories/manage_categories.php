@@ -78,6 +78,13 @@
       </div>
     </div>
 
+    <div class="modal" id="editModal">
+      <div class="modal-dialog">
+      <div id="error_display_div"></div>
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
 
   <script type="text/javascript">
   $(document).ready(function() {
@@ -133,27 +140,4 @@
              })
     })
 
-    $('#update').on('click', function(event){
-        event.prevendDefault();
-
-      var category = $(this).attr('data-edit');
-      $.ajax({
-        url:"<?php echo base_url();?>categories/fetch_Category",
-        method:"POST",
-        data: category_id,
-        dataType:"json",
-        success: function(data){
-          $('#categoryModal').modal('show');
-          $('#category_name').val(data.category_name);
-          $('.modal-title').html('<i class="fa fa-pencil-o"></i>Edit Category');
-          $('#hidden_id').val(category_id);
-          $('#submit').val('Update');
-
-        }
-
-      })
-
-    })
-
- 
-  </script>
+ </script>

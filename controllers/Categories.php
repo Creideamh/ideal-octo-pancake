@@ -50,4 +50,28 @@
 
         }
 
+
+        // Edit Category 
+        function edit_Category(){
+            $this->form_validation->set_rules('category_name', 'category_name', 'trim|required');
+            $this->form_validation->set_rules('category_status', 'category_status', 'trim|required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                $data = array(
+                    'errors' => validation_errors()
+                );
+    
+                $this->session->set_flashdata($data);
+                $msg = 0;
+                echo 'Error Occured';
+            }else{
+                $category_name  = $this->input->post('category_name');
+                $category_status = $this->input->post('category_status');
+                $category_info  = $this->categories_model->edit_Category($category_name, $category_status);
+            }
+
+                }
+        
+
     }

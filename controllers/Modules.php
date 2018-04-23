@@ -62,6 +62,6 @@
         // Edit  Category
         function edit_Category($category_id){
             $data['rows'] = $this->categories_model->category_data($category_id);
-            $this->load->view('modules/category/edit_Category', $data);
+            $this->load->view('modules/categories/edit_Category', $data);
         }
     }

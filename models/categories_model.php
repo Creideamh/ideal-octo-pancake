@@ -28,7 +28,7 @@
             }
         }
 
-        function fetch_Category($category_id){
+        function edit_Category($category_name , $category_status){
             $this->db->where('category_id', $category_id);
             $results = $this->db->get('category');
             return  $results->row_array();
