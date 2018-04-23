@@ -28,6 +28,12 @@
             }
         }
 
+        function fetch_Category($category_id){
+            $this->db->where('category_id', $category_id);
+            $results = $this->db->get('category');
+            return  $results->row_array();
+        }
+
     }
 
 

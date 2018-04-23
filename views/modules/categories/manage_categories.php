@@ -133,4 +133,27 @@
              })
     })
 
+    $('#update').on('click', function(event){
+        event.prevendDefault();
+
+      var category = $(this).attr('data-edit');
+      $.ajax({
+        url:"<?php echo base_url();?>categories/fetch_Category",
+        method:"POST",
+        data: category_id,
+        dataType:"json",
+        success: function(data){
+          $('#categoryModal').modal('show');
+          $('#category_name').val(data.category_name);
+          $('.modal-title').html('<i class="fa fa-pencil-o"></i>Edit Category');
+          $('#hidden_id').val(category_id);
+          $('#submit').val('Update');
+
+        }
+
+      })
+
+    })
+
+ 
   </script>

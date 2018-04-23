@@ -58,4 +58,10 @@
             $this->load->view('includes/footer.php', $data);
         }        
 
+
+        // Edit  Category
+        function edit_Category($category_id){
+            $data['rows'] = $this->categories_model->category_data($category_id);
+            $this->load->view('modules/category/edit_Category', $data);
+        }
     }
