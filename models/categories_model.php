@@ -19,9 +19,11 @@
                          VALUES ('$category_name', '$category_status')";
                 
                 if($this->db->query($sql)){
-                    echo 'Category, '.$category_name.' with status '.$category_status.'  created succesfully';
+                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  created succesfully';
+                    echo  json_encode($msg);                
                 }else{
-                    echo 'Category, '.$category_name.' with status '.$category_status.'  could not be created';                   
+                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
+                    echo json_encode($msg) ;
                 }
 
 
@@ -37,20 +39,18 @@
         }
 
         function edit_Category($category_id, $category_name , $category_status){
-            $this->db->where('category_name', $category_name);
-            $results = $this->db->get('category');
-            
-            if($results->num_rows() == 1){
-                $sql = "UPDATE `category` SET `category_name`='$category_name',`category_status`='$category_status' WHERE category_id = $category_id";
-                if($this->db->query($sql)){
-                    echo 'Category, '.$category_name.' with status '.$category_status.'  updated succesfully';
-                }else{
-                    echo 'Category, '.$category_name.' with status '.$category_status.'  could not be created';                   
-                } 
-            }else{
-                echo 'Double entries for this category exist';
-            }
 
+            
+                $sql = "UPDATE `category` SET `category_name`='$category_name',`category_status`='$category_status' WHERE category_id = $category_id";
+                
+                if($this->db->query($sql)){
+                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  updated succesfully';
+                   echo  json_encode($msg);
+
+                }else{
+                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
+                   echo json_encode($msg);                
+                } 
         }
 
     }

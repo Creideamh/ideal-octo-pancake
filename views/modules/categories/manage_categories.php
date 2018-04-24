@@ -5,7 +5,9 @@
 
         <div class="box box-default">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $title;?></h3><a href="<?php echo base_url();?>modules/add_Category" class="pull-right" id="addModal" data-toggle="modal" data-target="#addModal"><i class="fa fa-bars"></i></a>
+            <h3 class="box-title">
+            <?php echo $title;?></h3>
+            <a href="<?php echo base_url();?>modules/add_Category" class="pull-right" data-toggle="modal" data-target="#addModal"><i class="fa fa-bars"></i></a>
           </div>
           <div class="box-body">
           <table id="category-List" class="table table-bordered table-hover">
@@ -52,7 +54,6 @@
 
     <div class="modal" id="editModal">
       <div class="modal-dialog">
-      <div id="error_display_div"></div>
         <div class="modal-content">
         </div>
       </div>

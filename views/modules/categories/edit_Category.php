@@ -49,11 +49,11 @@
               method:"POST",
               data:dataString,
               dataType:"json",
-              success: function(data){
-                $('#error_display_div').fadeIn().addClass("alert alert-success alert-dismissible").html(data);
+              success: function(msg){
+                toastr.success(msg);
               },
-              error:function(){
-                $('#error_display_div').fadeIn().addClass("alert alert-danger alert-dismissible").html(data);
+              error:function(msg){
+                toastr.error(msg);
               }
           })
 

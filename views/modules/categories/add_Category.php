@@ -41,15 +41,14 @@
         url:"<?php echo base_url();?>categories/add_Category",
         method:"POST",
         data:dataString,
+        dataType:"json",
         success: function(data){
-            $('#category_form')[0].reset();
-            $('#error_display_div').fadeIn().addClass("alert alert-success alert-dismissible").html(data);
-            $('#submit').attr('disabled', false);
-        
+            $('#error_display_div').addClass("alert alert-success alert-dismissible").html(data);
+            $("#error_display_div").fadeOut(5000, function() { $(this).removeClass("alert alert-success alert-dismissible"); });
         },
         error: function(data){
-          $('#category_form')[0].reset();
             $('#error_display_div').fadeIn().addClass("alert alert-danger alert-dismissible").html(data);
+            $("#error_display_div").fadeOut(5000, function() { $(this).removeClass("alert alert-danger alert-dismissible"); });
         }
              })
     })
