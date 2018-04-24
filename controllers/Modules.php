@@ -58,6 +58,10 @@
             $this->load->view('includes/footer.php', $data);
         }        
 
+        // Add  Category
+        function add_Category(){
+            $this->load->view('modules/categories/add_Category');
+        }
 
         // Edit  Category
         function edit_Category($category_id){
