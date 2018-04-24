@@ -43,12 +43,13 @@
         data:dataString,
         dataType:"json",
         success: function(data){
-            $('#error_display_div').addClass("alert alert-success alert-dismissible").html(data);
-            $("#error_display_div").fadeOut(5000, function() { $(this).removeClass("alert alert-success alert-dismissible"); });
+            $('#error_display_div').addClass("alert alert-success alert-dismissible").html("Success");
+            $("#error_display_div").fadeOut(5000, function() { $(this).remove(); });
+            
         },
         error: function(data){
-            $('#error_display_div').fadeIn().addClass("alert alert-danger alert-dismissible").html(data);
-            $("#error_display_div").fadeOut(5000, function() { $(this).removeClass("alert alert-danger alert-dismissible"); });
+            $('#error_display_div').fadeIn().addClass("alert alert-danger alert-dismissible").html("Errpr Occurred");
+            $("#error_display_div").fadeOut(5000, function() { $(this).remove(); });
         }
              })
     })

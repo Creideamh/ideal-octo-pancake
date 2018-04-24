@@ -19,10 +19,10 @@
                          VALUES ('$category_name', '$category_status')";
                 
                 if($this->db->query($sql)){
-                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  created succesfully';
+                    $msg = 1;
                     echo  json_encode($msg);                
                 }else{
-                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
+                    $msg = 2;   
                     echo json_encode($msg) ;
                 }
 
