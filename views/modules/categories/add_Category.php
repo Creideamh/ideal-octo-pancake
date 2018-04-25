@@ -42,16 +42,14 @@
         method:"POST",
         data:dataString,
         dataType:"json",
-        success: function(data){
-            $('#error_display_div').addClass("alert alert-success alert-dismissible").html("Success");
-            $("#error_display_div").fadeOut(5000, function() { $(this).remove(); });
-            
+        success: function(msg){
+                toastr.success("Success");
         },
-        error: function(data){
-            $('#error_display_div').fadeIn().addClass("alert alert-danger alert-dismissible").html("Errpr Occurred");
-            $("#error_display_div").fadeOut(5000, function() { $(this).remove(); });
+        error:function(msg){
+                toastr.error("Error Occured");
         }
              })
     })
+    //$("#error_display_div").fadeOut(5000, function() { $(this).remove(); });
 
  </script>

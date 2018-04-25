@@ -58,6 +58,13 @@
         </div>
       </div>
     </div>
+  
+    <div class="modal" id="deleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
 
   <script type="text/javascript">
   $(document).ready(function() {
@@ -76,7 +83,7 @@
 
     setInterval( function () {
             table.ajax.reload();
-        }, 60000 );
+        }, 3000 );
    });
   </script> 
 

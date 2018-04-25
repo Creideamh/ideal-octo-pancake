@@ -53,6 +53,17 @@
                 } 
         }
 
+        // Delete Category
+        function delete_Category($category_id){
+            if($this->db->query("DELETE FROM category WHERE category_id='$category_id'")){
+                $msg = 1;
+              echo  json_encode($msg);
+            }else{
+                $msg = 0;
+              echo  json_encode($msg);
+            }        
+        }
+
     }
 
 

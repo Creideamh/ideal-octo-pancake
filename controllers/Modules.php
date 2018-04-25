@@ -68,4 +68,10 @@
             $data['rows'] = $this->categories_model->category_data($category_id);
             $this->load->view('modules/categories/edit_Category', $data);
         }
+
+        // Delete Category
+        function delete_Category($category_id){
+            $data['rows'] = $this->categories_model->category_data($category_id);
+            $this->load->view('modules/categories/delete_Category', $data);
+        }
     }
