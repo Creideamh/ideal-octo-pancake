@@ -78,12 +78,6 @@
 
         // Delete Category
         function delete_Category(){
-            $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
-
-            if ($this->form_validation->run() == TRUE){
-                $data = array(
-                    'errors' => validation_errors()
-                );
     
                 $this->session->set_flashdata($data);
                 $msg = 0;
@@ -92,7 +86,6 @@
             else{
                 $category_id    = $this->input->post('category_id');
                 $delete_info    = $this->categories_model->delete_Category($category_id);
-            }
 
         }
 
