@@ -27,21 +27,21 @@
 
     $('#delete').on('click', function(){
 
-      var category_id = $('#hidden_id').val();
+      var dataString = 'category_id='+ <?php echo $rows['category_id'];?>;
 
-      $.ajax({
-      type: 'ajax',
-      method: 'post',
-      url:"<?php echo base_url();?>categories/delete_Category",
-      dataType:'json',
-      data: category_id,     
-      success: function(msg){
-                toastr.success("Success");
+  $.ajax({
+        type:"ajax",
+        url:"<?php echo base_url();?>categories/delete_Category",
+        method:"POST",
+        data: dataString,
+        dataType:"json",
+        success: function(msg){
+                toastr.success("Success: Category data deleted");
         },
         error:function(msg){
-                toastr.error("Error Occured");
+                toastr.error("Error: Could not delete Category");
         }
-      }); // $.ajax({})
+             })
 
     })
 

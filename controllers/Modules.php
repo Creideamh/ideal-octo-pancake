@@ -74,4 +74,43 @@
             $data['rows'] = $this->categories_model->category_data($category_id);
             $this->load->view('modules/categories/delete_Category', $data);
         }
+
+
+
+        /******** BRANDS MODULE *****/
+
+        //  Manage Brands
+        function manage_brands(){
+            $data['title'] = "Manage Brands";
+            $this->load->view('includes/header', $data);
+            $this->load->view('modules/brands/manage_brands');
+            $this->load->view('includes/footer.php', $data);
+        }        
+
+        // Add  Brand
+        function add_Brand(){
+            $list['results'] =  $this->categories_model->categories_data();
+            $this->load->view('modules/brands/add_Brand', $list);
+        }
+
+        // Edit  Brand
+        function edit_Brand($brand_id){
+            $data['rows'] = $this->brands_model->brand_Data($brand_id);
+            $this->load->view('modules/brands/edit_Brand', $data);
+        }
+
+        // Delete Category
+        function delete_Brand($brand_id){
+            $data['rows'] = $this->brands_model->brand_Data($brand_id);
+            $this->load->view('modules/brands/delete_Brand', $data);
+        }
+
+
+
+
+
+
+
+
+
     }

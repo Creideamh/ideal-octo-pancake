@@ -78,15 +78,29 @@
 
         // Delete Category
         function delete_Category(){
+            $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
+
+
+            if ($this->form_validation->run() == FALSE)
+            {
+                $data = array(
+                    'errors' => validation_errors()
+                );
     
                 $this->session->set_flashdata($data);
                 $msg = 0;
-                echo 'Error Occured';     
-            }
-            else{
+                echo 'Error Occured';
+
+
+            }else{
                 $category_id    = $this->input->post('category_id');
-                $delete_info    = $this->categories_model->delete_Category($category_id);
+
+                $delete_info  = $this->categories_model->delete_Category($category_id);
+            }
 
         }
 
+
+    
+    
     }

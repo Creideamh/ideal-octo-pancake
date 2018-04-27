@@ -38,6 +38,21 @@
             return $query->row_array();
         }
 
+        function categories_data(){
+            $this->db->select('*');
+            $this->db->from('category');
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+
+        // For the edit Brand page, since can't pass another parameter in the URL
+        function categories_data_edit(){
+            $this->db->select('*');
+            $this->db->from('category');
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+
         function edit_Category($category_id, $category_name , $category_status){
 
             
@@ -50,19 +65,24 @@
                 }else{
                     $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
                    echo json_encode($msg);                
-                } 
+                }
+
         }
 
-        // Delete Category
+
         function delete_Category($category_id){
-            if($this->db->query("DELETE FROM category WHERE category_id='$category_id'")){
-                $msg = 1;
-              echo  json_encode($msg);
+    
+            $sql = "DELETE FROM `category` WHERE `category_id` = '$category_id' ";
+            
+            if($this->db->query($sql)){
+                $msg = 1;                
+                echo  json_encode($msg);
             }else{
-                $msg = 0;
-              echo  json_encode($msg);
-            }        
+                $msg = 2;   
+                echo json_encode($msg) ;
+            }    
         }
+
 
     }
 
