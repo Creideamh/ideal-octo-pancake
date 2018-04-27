@@ -37,6 +37,7 @@
             data: dataString,
             success: function(msg){
                     toastr.success("Success, Brand data deleted");
+                    $('#delete').remove();
             },
             error:function(msg){
                     toastr.error("Error, Could not delet Brand data");

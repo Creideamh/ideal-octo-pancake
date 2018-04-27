@@ -2,13 +2,13 @@
   <div class="modal-header">
         <input type="hidden" name="hidden_id" id="hidden_id" value="<?php echo $rows['category_id'];?>" />
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Delete User</h4>
+        <h4 class="modal-title">Delete Category</h4>
       </div>
       <div class="modal-body">
         <p>Are you sure, you want to permanently delete this Category</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-danger" id="delete">Yes</button>
       </div>
 
@@ -37,11 +37,12 @@
         dataType:"json",
         success: function(msg){
                 toastr.success("Success: Category data deleted");
+                $('#delete').remove();
         },
         error:function(msg){
                 toastr.error("Error: Could not delete Category");
         }
-             })
+      })
 
     })
 
