@@ -11,10 +11,12 @@
 
 
         function add_Category($category_name,$category_status){
+
             $this->db->where('category_name',  $category_name);
             $results = $this->db->get('category');
 
             if($results->num_rows() == 0){
+                
                 $sql = "INSERT INTO `category`(`category_name`, `category_status`) 
                          VALUES ('$category_name', '$category_status')";
                 
@@ -23,7 +25,7 @@
                     echo  json_encode($msg);                
                 }else{
                     $msg = 2;   
-                    echo json_encode($msg) ;
+                    echo json_encode($msg);
                 }
 
 
@@ -45,6 +47,22 @@
             return $query->result_array();
         }
 
+        function edit_Category($category_id, $category_name , $category_status){
+
+            
+            $sql = "UPDATE `category` SET `category_name`='$category_name',`category_status`='$category_status' WHERE category_id = $category_id";
+            
+            if($this->db->query($sql)){
+                $msg = 'Category, '.$category_name.' with status '.$category_status.'  updated succesfully';
+               echo  json_encode($msg);
+
+            }else{
+                $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
+               echo json_encode($msg);                
+            }
+
+        }
+
         // For the edit Brand page, since can't pass another parameter in the URL
         function categories_data_edit(){
             $this->db->select('*');
@@ -53,21 +71,7 @@
             return $query->result_array();
         }
 
-        function edit_Category($category_id, $category_name , $category_status){
 
-            
-                $sql = "UPDATE `category` SET `category_name`='$category_name',`category_status`='$category_status' WHERE category_id = $category_id";
-                
-                if($this->db->query($sql)){
-                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  updated succesfully';
-                   echo  json_encode($msg);
-
-                }else{
-                    $msg = 'Category, '.$category_name.' with status '.$category_status.'  could not be created';   
-                   echo json_encode($msg);                
-                }
-
-        }
 
 
         function delete_Category($category_id){

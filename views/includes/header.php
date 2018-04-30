@@ -75,6 +75,7 @@
        ?>
             <li><a href="<?php echo base_url();?>modules/manage_categories">Category</a></li>
             <li><a href="<?php echo base_url();?>modules/manage_brands">Brand</a></li>
+            <li><a href="<?php echo base_url();?>modules/manage_suppliers">Supplier</a></li>
             <li><a href="<?php echo base_url();?>modules/manage_products">Products</a></li>
         <?php 
             }

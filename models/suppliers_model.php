@@ -1,14 +1,23 @@
 <?php
 
-        class Brands_Model extends CI_Model{
+        class Suppliers_Model extends CI_Model{
 
-            function add_Brand($brand_name, $brand_status, $category_id){
-                $this->db->where('brand_name',  $brand_name);
-                $results = $this->db->get('brand');
+            public function cTable(){
+                $this->db->select('*');
+                $this->db->from('suppliers');
+                $query = $this->db->get();
+                return $query->result_array();
+            }
+
+
+            function add_Supplier($supplier_name, $supplier_email, $supplier_mnb, $supplier_address){
+                
+                $this->db->where('supplier_name',  $supplier_name);
+                $results = $this->db->get('suppliers');
     
                 if($results->num_rows() == 0){
-                    $sql = "INSERT INTO `brand`(`category_id`, `brand_name`, `brand_status`)
-                             VALUES ('$category_id', '$brand_name', '$brand_status')";
+                    $sql = "INSERT INTO `suppliers`(`supplier_name`, `supplier_mobile_number`, `supplier_email`, `supplier_address`)
+                             VALUES ('$supplier_name', '$supplier_mnb', '$supplier_email', '$supplier_address')";
                     
                     if($this->db->query($sql)){
                         $msg = 1;                
@@ -49,30 +58,9 @@
                 }    
             }
 
-            // Select Brand details for editing
-            function brand_Data($brand_id){
-                $this->db->select('*');
-                $this->db->from('brand');
-                $this->db->where('brand_id', $brand_id);
-                $query = $this->db->get();
-                return $query->row_array();
-            }
 
-        // Display the category name in the brand list table
-        function category_name($category_id){
-            $this->db->where('category_id', $category_id);
-            $this->db->select('category_name');
-            $results = $this->db->get('category');
-            return $results->row()->category_name;
 
-        }
 
-            public function cTable(){
-                $this->db->select('*');
-                $this->db->from('brand');
-                $query = $this->db->get();
-                return $query->result_array();
-            }
 
     }
 

@@ -105,7 +105,32 @@
             $this->load->view('modules/brands/delete_Brand', $data);
         }
 
+        /******** SUPPLIERS MODULE *****/
 
+        //  Manage Suppliers
+        function manage_suppliers(){
+            $data['title'] = "Manage Suppliers";
+            $this->load->view('includes/header', $data);
+            $this->load->view('modules/suppliers/manage_suppliers');
+            $this->load->view('includes/footer.php', $data);
+        }        
+
+        // Add  Supplier
+        function add_Supplier(){
+            $this->load->view('modules/suppliers/add_Supplier');
+        }
+
+        // Edit  Supplier
+        function edit_Supplier($supplier_id){
+            $data['rows'] = $this->suppliers_model->supplier_data($supplier_id);
+            $this->load->view('modules/brands/edit_Brand', $data);
+        }
+
+        // Delete Supplier
+        function delete_Supplier($supplier_id){
+            $data['rows'] = $this->supplier_model->supplier_data($supplier_id);
+            $this->load->view('modules/brands/delete_Brand', $data);
+        }
 
 
 

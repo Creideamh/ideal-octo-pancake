@@ -94,7 +94,6 @@
 
             }else{
                 $category_id    = $this->input->post('category_id');
-
                 $delete_info  = $this->categories_model->delete_Category($category_id);
             }
 
