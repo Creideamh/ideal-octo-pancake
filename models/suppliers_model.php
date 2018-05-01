@@ -10,14 +10,16 @@
             }
 
 
-            function add_Supplier($supplier_name, $supplier_email, $supplier_mnb, $supplier_address){
+            function add_Supplier($supplier_name, $supplier_email, $gh_number, $supplier_address){
                 
                 $this->db->where('supplier_name',  $supplier_name);
+                $this->db->where('supplier_email', $supplier_email);
+
                 $results = $this->db->get('suppliers');
     
                 if($results->num_rows() == 0){
                     $sql = "INSERT INTO `suppliers`(`supplier_name`, `supplier_mobile_number`, `supplier_email`, `supplier_address`)
-                             VALUES ('$supplier_name', '$supplier_mnb', '$supplier_email', '$supplier_address')";
+                             VALUES ('$supplier_name', '$gh_number', '$supplier_email', '$supplier_address')";
                     
                     if($this->db->query($sql)){
                         $msg = 1;                

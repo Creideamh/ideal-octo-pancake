@@ -48,6 +48,10 @@
 <script src="<?php echo base_url();?>assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Toaster js -->
 <script src="<?php echo base_url();?>build/js/toastr.min.js"></script>
+<!-- Phone Number -->
+<script src="<?php echo base_url();?>build/js/jquery.mask.js"></script>
+<!-- Email Validation -->
+<script src="<?php echo base_url();?>build/js/jquery.validate.js"></script>
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">

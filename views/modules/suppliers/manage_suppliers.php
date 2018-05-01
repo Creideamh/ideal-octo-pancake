@@ -16,7 +16,6 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Mobile Number</th>
-                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
@@ -27,7 +26,6 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Mobile Number</th>
-                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
                 </tfoot>
